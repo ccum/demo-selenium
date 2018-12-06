@@ -1,3 +1,4 @@
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -6,8 +7,16 @@ public class Demo {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		System.setProperty("webdriver.chrome.driver", "/home/cesarcueva/Documents/web-drivers/chromedriver_linux64/chromedriver");
+		WebDriver driver = new ChromeDriver();
+		driver.get("http://facebook.com");
+		driver.findElement(By.id("email")).sendKeys("mi email");
+		
+	}
+
+	private static void demo01() {
 		//configuramos la ubicación del driver de chrome
-		System.setProperty("webdriver.chrome.driver", "/Users/cesarcueva/Documents/projects/personal/cursoSelenium/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/home/cesarcueva/Documents/web-drivers/chromedriver_linux64/chromedriver");
 		//webdriver.gecko.driver --> para firefox
 		//webdriver.ie.driver --> para IE
 		
@@ -18,6 +27,13 @@ public class Demo {
 		//Imprimimos el titulo de la pagina
 		System.out.println(driver.getTitle());
 		
+		System.out.println(driver.getCurrentUrl());
+		
+		//System.out.println(driver.getPageSource());
+		driver.get("http://yahoo.com");
+		driver.navigate().back(); //navegar a la pagina anterior
+		driver.close();//cierre el browser actuial
+		//driver.quit();//cierra tosas los brouwser abiertos
 	}
 
 }
